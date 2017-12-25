@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/elsearchDemo/elsearchDemo.iml" filepath="$PROJECT_DIR$/elsearchDemo/elsearchDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/getIPByDomain/getIPByDomain.iml" filepath="$PROJECT_DIR$/getIPByDomain/getIPByDomain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java8Demo/java8Demo.iml" filepath="$PROJECT_DIR$/java8Demo/java8Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaOptimize/javaOptimize.iml" filepath="$PROJECT_DIR$/javaOptimize/javaOptimize.iml" />
+    </modules>
+  </component>
+</project>

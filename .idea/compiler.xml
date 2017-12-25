@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="elsearchDemo" />
+        <module name="getIPByDomain" />
+        <module name="java8Demo" />
+        <module name="javaOptimize" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cntrusteyework" target="1.5" />
+      <module name="elsearchDemo" target="1.8" />
+      <module name="getIPByDomain" target="1.8" />
+      <module name="java8Demo" target="1.8" />
+      <module name="javaOptimize" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
