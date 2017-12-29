@@ -1,4 +1,4 @@
-package cn.trusteye.work;
+package cn.trusteye.work.chapter1;
 
 /**
  * @Author: rayman

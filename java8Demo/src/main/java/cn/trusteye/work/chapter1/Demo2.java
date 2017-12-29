@@ -1,4 +1,6 @@
-package cn.trusteye.work;
+package cn.trusteye.work.chapter1;
+
+import cn.trusteye.work.chapter1.Apple;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,8 @@ public class Demo2 {
 
         List<Apple> filterApples = filterApples(inventory, Apple::isGreenApple);
         System.out.println(filterApples);
+
+        filterApples(inventory, (Apple a) -> "green".equals(a.getColor()));
 
 
     }

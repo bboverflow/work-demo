@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+    <Properties>
+        <!--由程序控制保存路径-->
+        <property name="base_home">${sys:elsearchDemo.logpath}</property>
+
+        <property name="info_file_name">Info.log</property>
+        <property name="info_rolling_file_name">Info-%d{yyyy-MM-dd}.log.gz</property>
+        <property name="log_pattern">%d{yyyy-MM-dd HH:mm:ss} %-5level - %msg%xEx%n</property>
+
+        <property name="error_file_name">Error.log</property>
+        <property name="error_rolling_file_name">Error-%d{yyyy-MM-dd}.log.gz</property>
+        <property name="error_pattern">%d{yyyy-MM-dd HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n</property>
+
+        <property name="output_log_level">trace</property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${log_pattern}"/>
+        </Console>
+
+        <RollingFile name="InfoFile" fileName="${base_home}/${info_file_name}"
+                     filePattern="${base_home}/${info_rolling_file_name}">
+            <PatternLayout pattern="${log_pattern}"/>
+
+            <CronTriggeringPolicy schedule="0 0 0 * * ?"/>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${base_home}" maxDepth="1">
+                    <IfFileName glob="Info-*.log.gz" />
+                    <IfLastModified age="30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+
+            <Filters>
+                <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+
+
+        <!--只显示error级别的信息-->
+        <RollingFile name="ErrorFile" fileName="${base_home}/${error_file_name}"
+                     filePattern="${base_home}/${info_rolling_file_name}">
+            <PatternLayout pattern="${error_pattern}"/>
+
+            <CronTriggeringPolicy schedule="0 0 0 * * ?"/>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${base_home}" maxDepth="1">
+                    <IfFileName glob="Error_*.log.gz" />
+                    <IfLastModified age="180d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+
+    </Appenders>
+    <loggers>
+        <!--建立一个默认的root的logger，需要在root的level中指定输出的级别，-->
+        <root level="${output_log_level}">
+            <appender-ref ref="InfoFile"/>
+            <appender-ref ref="ErrorFile"/>
+            <appender-ref ref="Console"/>
+        </root>
+    </loggers>
+</configuration>
