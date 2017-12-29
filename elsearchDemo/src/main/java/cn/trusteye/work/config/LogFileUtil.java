@@ -17,7 +17,7 @@ import java.io.FileInputStream;
 
 public class LogFileUtil {
 	private Logger logger;
-	private static final String LOG_FILENAME = "config/log4j2.xml";
+	private static final String LOG_FILENAME = "log4j2.xml";
 
 	private LogFileUtil() {
 		try {
@@ -30,7 +30,7 @@ public class LogFileUtil {
 			 * 加载指定日志配置文件
 			 */
 			ConfigurationSource source = new ConfigurationSource(
-					new FileInputStream(getConfigFilename()));
+					new FileInputStream(WorkPathUtil.getConfigPath()+File.separator+LOG_FILENAME));
 			Configurator.initialize(null, source);
 			logger = LogManager.getLogger(LogFileUtil.class.getName());
 		} catch (Exception e) {
@@ -46,8 +46,4 @@ public class LogFileUtil {
 		return InnerClass.INSTANCE.logger;
 	}
 
-	public static String getConfigFilename() {
-		return WorkPathUtil.getConfigPath() + File.separator
-				+ LOG_FILENAME;
-	}
 }

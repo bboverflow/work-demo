@@ -12,7 +12,7 @@ import java.util.Properties;
 public class PropConfig {
 	private Properties prop;
 
-	private static final String PROP_FILENAME = "config/config.properties";
+	private static final String PROP_FILENAME = "config.properties";
 	private String outputDir;
 
 	private MongoConfig mongoConfig;
@@ -31,8 +31,6 @@ public class PropConfig {
 			System.out.println("加载程序配置文件:"+configFilename);
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(configFilename),"UTF-8");
 			prop.load(reader);
-
-			outputDir = prop.getProperty("Output_Directory").trim();
 
 			mongoConfig.setMongoAddr(prop.getProperty("mongo.address").trim());
 			mongoConfig.setMongoPort(Integer.parseInt(prop.getProperty("mongo.port").trim()));

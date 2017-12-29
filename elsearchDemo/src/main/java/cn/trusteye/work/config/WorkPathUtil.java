@@ -30,20 +30,6 @@ public class WorkPathUtil {
 	}
 
 	/**
-	 * 得到类路径
-	 * @return
-	 */
-	public static String getClassPath(){
-		String path= System.getProperty("java.class.path");
-
-		int lastIndex = path.indexOf(System.getProperty("path.separator"));
-		if(lastIndex < 0){
-			return path;
-		}
-		return path.substring(0, lastIndex);
-	}
-	
-	/**
 	 * 得到工作区路径
 	 * @return
 	 */
